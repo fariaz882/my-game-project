@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Lab Game Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- ১. লগইন বা গেস্ট স্ক্রিন -->
+        <div id="auth-screen">
+            <h2>Welcome to Game Portal</h2>
+            <button onclick="loginAsGuest()">Login as Guest</button>
+            <hr>
+            <h3>User / Admin Login</h3>
+            <input type="text" id="username" placeholder="Username (admin / user)">
+            <input type="password" id="password" placeholder="Password (admin123)">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <!-- ২. মেইন মেনু (লগইন করার পর যা দেখাবে) -->
+        <div id="main-menu" class="hidden">
+            <h2 id="welcome-msg"></h2>
+            <div class="menu-buttons">
+                <button onclick="startNewGame()">New Game</button>
+                <button onclick="continueGame()">Continue Game</button>
+                <button id="admin-btn" class="hidden" onclick="showAdminPanel()">Admin Panel</button>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <!-- ৩. গেম খেলার স্ক্রিন (Tic-Tac-Toe Board) -->
+        <div id="game-screen" class="hidden">
+            <h2>Tic-Tac-Toe Game</h2>
+            <div id="status">Turn: Player X</div>
+            <div class="board" id="board">
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+            </div>
+            <br>
+            <button onclick="backToMenu()">Back to Menu</button>
+        </div>
+
+        <!-- ৪. অ্যাডমিন প্যানেল স্ক্রিন (শুধুমাত্র অ্যাডমিন দেখতে পাবে) -->
+        <div id="admin-screen" class="hidden">
+            <h2>Admin Control Panel</h2>
+            <p><strong>System Status:</strong> All servers operational</p>
+            <p><strong>Total Registered Users:</strong> 15</p>
+            <p><strong>Active Session Logs:</strong> Admin logged in</p>
+            <button onclick="backToMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
